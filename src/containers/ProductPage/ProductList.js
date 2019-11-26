@@ -26,8 +26,8 @@ const ProductList = ({ rows }) => {
   const classes = useStyles();
   return (
     <Grid item xs={12}>
-      <Paper className={classes.paper}>      <
-        Title>Products</Title>
+      <Paper className={classes.paper}>
+        <Title>Products</Title>
         <Table size="small">
           <TableHead>
             <TableRow>

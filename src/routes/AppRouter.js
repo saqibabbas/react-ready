@@ -5,6 +5,7 @@ import Customer from '../containers/CustomerPage';
 import Product from '../containers/ProductPage';
 import Home from '../containers/HomePage';
 import Login from '../containers/LoginPage';
+import NotFound from '../components/NotFound';
 import { AdminLayout, HomeLayout } from '../layouts';
 
 const AppRouter = () => (
@@ -14,6 +15,7 @@ const AppRouter = () => (
         <PrivateRoute path="/customers" component={Customer} layout={AdminLayout} />
         <PrivateRoute path="/products" component={Product} layout={AdminLayout} />
         <PublicRoute exact path="/" component={Home} layout={HomeLayout} />
+        <PublicRoute path="*" component={NotFound} />
     </Switch>
 );
 
