@@ -1,3 +1,6 @@
+[![Build Status](https://dev.azure.com/saqibriz/react-ready/_apis/build/status/saqibabbas.react-ready?branchName=master)](https://dev.azure.com/saqibriz/react-ready/_build/latest?definitionId=3&branchName=master)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
