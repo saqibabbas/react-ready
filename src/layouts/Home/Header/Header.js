@@ -26,7 +26,7 @@ const Header = ({ classes }) => {
         <React.Fragment>
             <Toolbar className={classes.toolbar}>
                 <Button variant="outlined" size="small" component={LinkMaterial} to="/">
-                    React-Quick
+                    React-Ready
                 </Button>
 
                 <Typography
