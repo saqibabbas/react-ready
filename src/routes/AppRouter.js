@@ -7,6 +7,7 @@ import Home from '../containers/HomePage';
 import Login from '../containers/LoginPage';
 import NotFound from '../components/NotFound';
 import { AdminLayout, HomeLayout } from '../layouts';
+import { authGuard } from '../utils';
 
 const AppRouter = () => (
     <Switch>
@@ -26,7 +27,7 @@ const PublicRoute = ({ component: Component, layout: Layout, ...rest }) => (
 );
 
 const PrivateRoute = ({ component: Component, layout: Layout, ...rest }) => (
-    localStorage.getItem('authToken') ?
+    authGuard.isAuthenticated() ?
         <AppRouteLayout {...rest} component={Component} layout={Layout} />
         :
         <Redirect

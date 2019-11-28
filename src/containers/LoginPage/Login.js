@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { useHistory } from "../../utils";
+import { useHistory, authProvider } from '../../utils';
 
 function Copyright() {
   return (
@@ -55,10 +55,15 @@ const Login = () => {
   const classes = useStyles();
   const history = useHistory();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    localStorage.setItem('authToken', true);
-    history.push("/dashboard");
+  async function handleSubmit(e) {
+    try {
+      e.preventDefault();
+      await authProvider.login({});
+      history.push("/dashboard");
+    }
+    catch (error) {
+
+    }
   }
   return (
     <Container component="main" maxWidth="xs">

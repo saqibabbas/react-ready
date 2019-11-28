@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { HttpStatusCode, NetworkError } from '../constants';
+import { HTTP_STATUS_CODE, NETWORK_ERROR } from '../constants';
 class httpClient {
     constructor() {
         //TODO: need to implement base url and version from enviornment variables
@@ -28,15 +28,15 @@ class httpClient {
             customError.status = error.response.status;
             customError.message = error.response.statusText
             switch (error.response.status) {
-                case HttpStatusCode.BadRequest:
+                case HTTP_STATUS_CODE.BadRequest || HTTP_STATUS_CODE.Unauthorized:
                     if (error.response.data.errors.lenght) {
                         customError.message = error.response.data.errors[0];
                     }
                     break;
-                case HttpStatusCode.Forbidden:
+                case HTTP_STATUS_CODE.Forbidden:
                     this.redirectTo('/login')
                     break;
-                case HttpStatusCode.NotFound:
+                case HTTP_STATUS_CODE.NotFound:
                     this.redirectTo('/notfound')
                     break;
                 default:
@@ -44,7 +44,7 @@ class httpClient {
             }
         }
         else {
-            customError.message = NetworkError;
+            customError.message = NETWORK_ERROR;
         }
         return Promise.reject(customError)
     }
