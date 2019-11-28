@@ -4,7 +4,7 @@ class httpClient {
     constructor() {
         //TODO: need to implement base url and version from enviornment variables
         let client = axios.create({
-            baseURL: "http://www.mocky.io/v2/",
+            baseURL: "https://www.mocky.io/v2/",
             responseType: "json"
         });
         client.interceptors.request.use(this.handleRequest);
