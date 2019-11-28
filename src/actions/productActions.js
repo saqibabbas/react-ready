@@ -1,21 +1,17 @@
 import * as types from './actionTypes';
+import { httpClient } from '../utils';
 
 export function getProducts() {
-  return dispatch => {
-    dispatch(getProductsPending());
-    //TODO: need to implement axios for actual http implementation in seperate helper
-    fetch('https://google.com')
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          throw (res.error);
-        }
-        dispatch(getProductsSuccess(res.products));
-        return res.products;
-      })
-      .catch(error => {
-        dispatch(getProductsError(error));
-      })
+  return async dispatch => {
+    try {
+      dispatch(getProductsPending());
+      const response = await httpClient.get('5dde7f1c310000d4253ae2ad');
+      dispatch(getProductsSuccess(response.result));
+    }
+    catch (error) {
+      dispatch(getProductsError(error.message));
+    }
+
   }
 }
 function getProductsPending() {
@@ -33,7 +29,7 @@ function getProductsSuccess(products) {
 
 function getProductsError(error) {
   return {
-    type: types.GET_PRODUCTS_FAILURE,
+    type: types.GET_PRODUCTS_ERROR,
     error: error
   }
 }
