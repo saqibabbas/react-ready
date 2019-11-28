@@ -17,6 +17,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { menuItems } from './menuItems';
+import MailIcon from '@material-ui/icons/Mail';
+import UserAccountMenu from '../../components/UserAccountMenu';
 
 function Copyright() {
   return (
@@ -112,7 +114,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function AdminLayout({ children }) {
+export default function AdminLayout({ children, props }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -139,11 +141,17 @@ export default function AdminLayout({ children }) {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>
+          <IconButton aria-label="show 4 new mails" color="inherit">
+            <Badge badgeContent={4} color="secondary">
+              <MailIcon />
+            </Badge>
+          </IconButton>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
+          <UserAccountMenu {...props} />
         </Toolbar>
       </AppBar>
       <Drawer
