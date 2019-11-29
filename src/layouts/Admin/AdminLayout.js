@@ -39,19 +39,8 @@ const Layout = (props) => {
         duration: theme.transitions.duration.leavingScreen,
       }),
     },
-    appBarShift: {
-      marginLeft: drawerWidth,
-      width: `calc(100% - ${drawerWidth}px)`,
-      transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
     menuButton: {
       marginRight: 36,
-    },
-    menuButtonHidden: {
-      display: 'none',
     },
     title: {
       flexGrow: 1,
@@ -98,18 +87,15 @@ const Layout = (props) => {
   }));
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawerToggle = () => {
+    setOpen(!open);
   };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header open={open} classes={classes} handleDrawerOpen={handleDrawerOpen} {...props} />
-      <SideMenu open={open} classes={classes} handleDrawerClose={handleDrawerClose} {...props} />
+      <Header open={open} classes={classes} handleDrawerToggle={handleDrawerToggle} {...props} />
+      <SideMenu open={open} classes={classes} {...props} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
