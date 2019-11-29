@@ -116,7 +116,7 @@ const Login = () => {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Log In
           </Button>
             <Grid container>
               <Grid item xs>

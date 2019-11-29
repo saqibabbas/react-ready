@@ -42,8 +42,7 @@ const Header = (props) => {
                     noWrap
                     className={classes.toolbarTitle}
                 >
-                    Blog
-    </Typography>
+                </Typography>
                 <IconButton>
                     <SearchIcon />
                 </IconButton>
