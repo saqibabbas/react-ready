@@ -14,19 +14,6 @@ import Container from '@material-ui/core/Container';
 import { useHistory, authProvider, authGuard } from '../../utils';
 import { Redirect } from 'react-router-dom';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -132,9 +119,6 @@ const Login = () => {
             </Grid>
           </form>
         </div>
-        <Box mt={8}>
-          <Copyright />
-        </Box>
       </Container>
   );
 }
