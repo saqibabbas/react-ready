@@ -2,14 +2,24 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import { withRouter } from 'react-router-dom';
+import { authProvider } from '../../utils';
 import Header from './Header';
 import SideMenu from './SideMenu';
 import Footer from './Footer';
 
 class AdminLayout extends Component {
+  constructor(props) {
+    super(props);
+    this.logout = this.logout.bind(this);
+  }
+  logout() {
+    authProvider.logout();
+    this.props.history.push('/');
+  }
   render() {
     return (
-      <Layout {...this.props} />
+      <Layout logout={this.logout} {...this.props} />
     );
   }
 }
@@ -107,4 +117,4 @@ const Layout = (props) => {
   );
 }
 
-export default AdminLayout;
+export default withRouter(AdminLayout);

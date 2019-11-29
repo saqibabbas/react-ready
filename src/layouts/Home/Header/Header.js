@@ -6,6 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import { Link as RouterLink } from 'react-router-dom';
+import UserAccountMenu from '../../../components/UserAccountMenu';
+import { authGuard } from '../../../utils';
+
+
 const LinkMaterial = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 const sections = [
@@ -21,7 +25,8 @@ const sections = [
     'Travel',
 ];
 
-const Header = ({ classes }) => {
+const Header = (props) => {
+    const { classes } = props;
     return (
         <React.Fragment>
             <Toolbar className={classes.toolbar}>
@@ -42,9 +47,18 @@ const Header = ({ classes }) => {
                 <IconButton>
                     <SearchIcon />
                 </IconButton>
-                <Button variant="outlined" size="small" component={LinkMaterial} to="/login">
-                    Log in
-    </Button>
+                {
+                    authGuard.isAuthenticated() ?
+                        <React.Fragment>
+                            <Button variant="outlined" size="small" component={LinkMaterial} to="/dashboard">
+                                Dashbaord
+                        </Button>
+                            <UserAccountMenu {...props} />
+                        </React.Fragment> :
+                        <Button variant="outlined" size="small" component={LinkMaterial} to="/login">
+                            Log in
+                    </Button>
+                }
             </Toolbar>
             <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
                 {sections.map(section => (

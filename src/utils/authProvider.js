@@ -25,6 +25,7 @@ class authProvider {
 
     logout() {
         localStorage.removeItem(AUTH_TOKEN);
+        localStorage.removeItem(TOKEN_EXPIRY);
     }
 
     refreshToken() {
