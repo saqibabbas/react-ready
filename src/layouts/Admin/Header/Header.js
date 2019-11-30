@@ -11,21 +11,21 @@ import MailIcon from '@material-ui/icons/Mail';
 import UserAccountMenu from '../../../components/UserAccountMenu';
 
 const Header = (props) => {
-    const { handleDrawerOpen, open, classes } = props;
+    const { handleDrawerToggle, classes } = props;
     return (
-        <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+        <AppBar position="absolute" className={clsx(classes.appBar)}>
             <Toolbar className={classes.toolbar}>
                 <IconButton
                     edge="start"
                     color="inherit"
                     aria-label="open drawer"
-                    onClick={handleDrawerOpen}
-                    className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+                    onClick={handleDrawerToggle}
+                    className={clsx(classes.menuButton)}
                 >
                     <MenuIcon />
                 </IconButton>
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                    Dashboard
+                    React-Ready
           </Typography>
                 <IconButton aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="secondary">

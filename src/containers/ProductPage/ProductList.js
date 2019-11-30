@@ -52,7 +52,7 @@ const ProductList = ({ rows }) => {
         </Table>
         <div className={classes.seeMore}>
           <Link color="primary" href="#">
-            See more orders
+            See more products
         </Link>
         </div>
       </Paper>

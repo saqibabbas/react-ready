@@ -2,14 +2,24 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import { withRouter } from 'react-router-dom';
+import { authProvider } from '../../utils';
 import Header from './Header';
 import SideMenu from './SideMenu';
 import Footer from './Footer';
 
 class AdminLayout extends Component {
+  constructor(props) {
+    super(props);
+    this.logout = this.logout.bind(this);
+  }
+  logout() {
+    authProvider.logout();
+    this.props.history.push('/');
+  }
   render() {
     return (
-      <Layout {...this.props} />
+      <Layout logout={this.logout} {...this.props} />
     );
   }
 }
@@ -39,19 +49,8 @@ const Layout = (props) => {
         duration: theme.transitions.duration.leavingScreen,
       }),
     },
-    appBarShift: {
-      marginLeft: drawerWidth,
-      width: `calc(100% - ${drawerWidth}px)`,
-      transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
     menuButton: {
       marginRight: 36,
-    },
-    menuButtonHidden: {
-      display: 'none',
     },
     title: {
       flexGrow: 1,
@@ -98,18 +97,15 @@ const Layout = (props) => {
   }));
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawerToggle = () => {
+    setOpen(!open);
   };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header open={open} classes={classes} handleDrawerOpen={handleDrawerOpen} {...props} />
-      <SideMenu open={open} classes={classes} handleDrawerClose={handleDrawerClose} {...props} />
+      <Header open={open} classes={classes} handleDrawerToggle={handleDrawerToggle} {...props} />
+      <SideMenu open={open} classes={classes} {...props} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -121,4 +117,4 @@ const Layout = (props) => {
   );
 }
 
-export default AdminLayout;
+export default withRouter(AdminLayout);
