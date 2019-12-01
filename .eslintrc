@@ -6,10 +6,11 @@
     },
     "plugins": [
         "import",
-        "prettier",
+        "prettier"
     ],
     "extends": [
         "react-app",
+        "airbnb",
         "plugin:prettier/recommended"
     ],
     "parserOptions": {
