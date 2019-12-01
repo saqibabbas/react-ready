@@ -1,0 +1,23 @@
+{
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "plugins": [
+        "import"
+    ],
+    "extends": [
+        "react-app",
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": "warn",
+        "no-eval": "error",
+        "import/first": "error"
+    }
+}
