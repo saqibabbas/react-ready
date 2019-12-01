@@ -5,11 +5,12 @@
         "node": true
     },
     "plugins": [
-        "import"
+        "import",
+        "prettier",
     ],
     "extends": [
         "react-app",
-        "eslint:recommended"
+        "plugin:prettier/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 6,
