@@ -17,8 +17,7 @@ class authProvider {
             localStorage.setItem(AUTH_TOKEN, 'token');
             localStorage.setItem(TOKEN_EXPIRY, tokenExpiry);
             return Promise.resolve();
-        }
-        catch (error) {
+        } catch (error) {
             return Promise.reject(error.message);
         }
     }
@@ -28,8 +27,7 @@ class authProvider {
         localStorage.removeItem(TOKEN_EXPIRY);
     }
 
-    refreshToken() {
-    }
+    refreshToken() {}
     getTokenFakeExpiryTime(minutes) {
         let dt = new Date();
         return new Date(dt.setUTCMinutes(dt.getUTCMinutes() + minutes));

@@ -11,53 +11,56 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from '../../components/Title';
 
 const useStyles = makeStyles(theme => ({
-  paper: {
-    padding: theme.spacing(2),
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
-  },
-  seeMore: {
-    marginTop: theme.spacing(3),
-  },
+    paper: {
+        padding: theme.spacing(2),
+        display: 'flex',
+        overflow: 'auto',
+        flexDirection: 'column',
+    },
+    seeMore: {
+        marginTop: theme.spacing(3),
+    },
 }));
 
 const CustomerList = ({ rows }) => {
-  const classes = useStyles();
-  return (
-    <Grid item xs={12}>
-      <Paper className={classes.paper}>      <
-        Title>Customers</Title>
-        <Table size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell>Date</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Ship To</TableCell>
-              <TableCell>Payment Method</TableCell>
-              <TableCell align="right">Sale Amount</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map(row => (
-              <TableRow key={row.id}>
-                <TableCell>{row.date}</TableCell>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>{row.shipTo}</TableCell>
-                <TableCell>{row.paymentMethod}</TableCell>
-                <TableCell align="right">{row.amount}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <div className={classes.seeMore}>
-          <Link color="primary" href="#">
-            See more customers
-        </Link>
-        </div>
-      </Paper>
-    </Grid>
-  );
-}
+    const classes = useStyles();
+    return (
+        <Grid item xs={12}>
+            <Paper className={classes.paper}>
+                {' '}
+                <Title>Customers</Title>
+                <Table size="small">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Date</TableCell>
+                            <TableCell>Name</TableCell>
+                            <TableCell>Ship To</TableCell>
+                            <TableCell>Payment Method</TableCell>
+                            <TableCell align="right">Sale Amount</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {rows.map(row => (
+                            <TableRow key={row.id}>
+                                <TableCell>{row.date}</TableCell>
+                                <TableCell>{row.name}</TableCell>
+                                <TableCell>{row.shipTo}</TableCell>
+                                <TableCell>{row.paymentMethod}</TableCell>
+                                <TableCell align="right">
+                                    {row.amount}
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                <div className={classes.seeMore}>
+                    <Link color="primary" href="#">
+                        See more customers
+                    </Link>
+                </div>
+            </Paper>
+        </Grid>
+    );
+};
 
 export default CustomerList;

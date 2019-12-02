@@ -9,8 +9,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import UserAccountMenu from '../../../components/UserAccountMenu';
 import { authGuard } from '../../../utils';
 
-
-const LinkMaterial = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+const LinkMaterial = React.forwardRef((props, ref) => (
+    <RouterLink innerRef={ref} {...props} />
+));
 
 const sections = [
     'Technology',
@@ -25,12 +26,17 @@ const sections = [
     'Travel',
 ];
 
-const Header = (props) => {
+const Header = props => {
     const { classes } = props;
     return (
         <React.Fragment>
             <Toolbar className={classes.toolbar}>
-                <Button variant="outlined" size="small" component={LinkMaterial} to="/">
+                <Button
+                    variant="outlined"
+                    size="small"
+                    component={LinkMaterial}
+                    to="/"
+                >
                     React-Ready
                 </Button>
 
@@ -41,25 +47,38 @@ const Header = (props) => {
                     align="center"
                     noWrap
                     className={classes.toolbarTitle}
-                >
-                </Typography>
+                ></Typography>
                 <IconButton>
                     <SearchIcon />
                 </IconButton>
-                {
-                    authGuard.isAuthenticated() ?
-                        <React.Fragment>
-                            <Button variant="outlined" size="small" component={LinkMaterial} to="/dashboard">
-                                Dashbaord
+                {authGuard.isAuthenticated() ? (
+                    <React.Fragment>
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            component={LinkMaterial}
+                            to="/dashboard"
+                        >
+                            Dashbaord
                         </Button>
-                            <UserAccountMenu {...props} />
-                        </React.Fragment> :
-                        <Button variant="outlined" size="small" component={LinkMaterial} to="/login">
-                            Log in
+                        <UserAccountMenu {...props} />
+                    </React.Fragment>
+                ) : (
+                    <Button
+                        variant="outlined"
+                        size="small"
+                        component={LinkMaterial}
+                        to="/login"
+                    >
+                        Log in
                     </Button>
-                }
+                )}
             </Toolbar>
-            <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+            <Toolbar
+                component="nav"
+                variant="dense"
+                className={classes.toolbarSecondary}
+            >
                 {sections.map(section => (
                     <Link
                         color="inherit"
@@ -75,6 +94,6 @@ const Header = (props) => {
             </Toolbar>
         </React.Fragment>
     );
-}
+};
 
 export default Header;

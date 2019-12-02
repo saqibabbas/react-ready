@@ -1,11 +1,11 @@
-//http 
+//http
 export const HTTP_STATUS_CODE = {
     OK: 200,
     BadRequest: 400,
     Unauthorized: 401,
     Forbidden: 403,
     NotFound: 404,
-    InternalServerError: 500
+    InternalServerError: 500,
 };
 export const NETWORK_ERROR = 'Network Error. Try again later.';
 

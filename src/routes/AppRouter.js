@@ -13,37 +13,54 @@ class AppRouter extends Component {
     render() {
         return (
             <Switch>
-                <PublicRoute path="/login" component={Login} layout={HomeLayout} />
-                <PrivateRoute path="/dashboard" component={Dashboard} layout={AdminLayout} />
-                <PrivateRoute path="/customers" component={Customer} layout={AdminLayout} />
-                <PrivateRoute path="/products" component={Product} layout={AdminLayout} />
-                <PublicRoute exact path="/" component={Home} layout={HomeLayout} />
+                <PublicRoute
+                    path="/login"
+                    component={Login}
+                    layout={HomeLayout}
+                />
+                <PrivateRoute
+                    path="/dashboard"
+                    component={Dashboard}
+                    layout={AdminLayout}
+                />
+                <PrivateRoute
+                    path="/customers"
+                    component={Customer}
+                    layout={AdminLayout}
+                />
+                <PrivateRoute
+                    path="/products"
+                    component={Product}
+                    layout={AdminLayout}
+                />
+                <PublicRoute
+                    exact
+                    path="/"
+                    component={Home}
+                    layout={HomeLayout}
+                />
                 <PublicRoute path="*" component={NotFound} />
             </Switch>
-        )
-    };
+        );
+    }
 }
 export default AppRouter;
 
-const PublicRoute = (props) => {
-    return (
-        <AppRouteLayout {...props} />
-    )
+const PublicRoute = props => {
+    return <AppRouteLayout {...props} />;
 };
 
-const PrivateRoute = (props) => {
-    return (
-        authGuard.isAuthenticated() ?
-            <AppRouteLayout {...props} />
-            :
-            <Redirect
-                to={{
-                    pathname: '/login',
-                    state: { from: props.location }
-                }}
-            />
-
-    )
+const PrivateRoute = props => {
+    return authGuard.isAuthenticated() ? (
+        <AppRouteLayout {...props} />
+    ) : (
+        <Redirect
+            to={{
+                pathname: '/login',
+                state: { from: props.location },
+            }}
+        />
+    );
 };
 
 const AppRouteLayout = ({ component: Component, layout: Layout, ...rest }) => {
@@ -56,11 +73,11 @@ const AppRouteLayout = ({ component: Component, layout: Layout, ...rest }) => {
                         <Layout>
                             <Component {...props} />
                         </Layout>
-                    )
+                    );
                 } else {
-                    return <Component {...props} />
+                    return <Component {...props} />;
                 }
             }}
         />
-    )
+    );
 };

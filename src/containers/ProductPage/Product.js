@@ -8,22 +8,18 @@ class Product extends React.Component {
         this.props.getProducts();
     }
     render() {
-        return (
-            <ProductList rows={this.props.products} />
-        );
+        return <ProductList rows={this.props.products} />;
     }
-};
+}
 
-const mapStateToProps = (state, ownProps) => (
-    {
-        products: state.product.list
-    }
-);
+const mapStateToProps = (state, ownProps) => ({
+    products: state.product.list,
+});
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
-        getProducts: () => dispatch(productActions.getProducts())
-    }
+        getProducts: () => dispatch(productActions.getProducts()),
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);

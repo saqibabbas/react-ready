@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     },
     cardMedia: {
         width: 160,
-    }
+    },
 }));
 
 const featuredPosts = [
@@ -64,7 +64,6 @@ const featuredPosts = [
 ];
 
 const Home = () => {
-
     const classes = useStyles();
 
     return (
@@ -82,16 +81,23 @@ const Home = () => {
                 <Grid container>
                     <Grid item md={6}>
                         <div className={classes.mainFeaturedPostContent}>
-                            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+                            <Typography
+                                component="h1"
+                                variant="h3"
+                                color="inherit"
+                                gutterBottom
+                            >
                                 Title of a longer featured blog post
-         </Typography>
+                            </Typography>
                             <Typography variant="h5" color="inherit" paragraph>
-                                Multiple lines of text that form the lede, informing new readers quickly and
-                                efficiently about what&apos;s most interesting in this post&apos;s contents.
-         </Typography>
+                                Multiple lines of text that form the lede,
+                                informing new readers quickly and efficiently
+                                about what&apos;s most interesting in this
+                                post&apos;s contents.
+                            </Typography>
                             <Link variant="subtitle1" href="#">
                                 Continue reading…
-         </Link>
+                            </Link>
                         </div>
                     </Grid>
                 </Grid>
@@ -107,15 +113,24 @@ const Home = () => {
                                         <Typography component="h2" variant="h5">
                                             {post.title}
                                         </Typography>
-                                        <Typography variant="subtitle1" color="textSecondary">
+                                        <Typography
+                                            variant="subtitle1"
+                                            color="textSecondary"
+                                        >
                                             {post.date}
                                         </Typography>
-                                        <Typography variant="subtitle1" paragraph>
+                                        <Typography
+                                            variant="subtitle1"
+                                            paragraph
+                                        >
                                             {post.description}
                                         </Typography>
-                                        <Typography variant="subtitle1" color="primary">
+                                        <Typography
+                                            variant="subtitle1"
+                                            color="primary"
+                                        >
                                             Continue reading...
-               </Typography>
+                                        </Typography>
                                     </CardContent>
                                 </div>
                                 <Hidden xsDown>

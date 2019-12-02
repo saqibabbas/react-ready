@@ -10,7 +10,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MailIcon from '@material-ui/icons/Mail';
 import UserAccountMenu from '../../../components/UserAccountMenu';
 
-const Header = (props) => {
+const Header = props => {
     const { handleDrawerToggle, classes } = props;
     return (
         <AppBar position="absolute" className={clsx(classes.appBar)}>
@@ -24,9 +24,15 @@ const Header = (props) => {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                <Typography
+                    component="h1"
+                    variant="h6"
+                    color="inherit"
+                    noWrap
+                    className={classes.title}
+                >
                     React-Ready
-          </Typography>
+                </Typography>
                 <IconButton aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="secondary">
                         <MailIcon />
@@ -39,7 +45,8 @@ const Header = (props) => {
                 </IconButton>
                 <UserAccountMenu {...props} />
             </Toolbar>
-        </AppBar>);
+        </AppBar>
+    );
 };
 
 export default Header;

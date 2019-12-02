@@ -4,7 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
-const UserAccountMenu = (props) => {
+const UserAccountMenu = props => {
     const { logout } = props;
     const menuId = 'user-account-menu';
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -41,14 +41,13 @@ const UserAccountMenu = (props) => {
                 keepMounted
                 transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                 open={isMenuOpen}
-                onClose={handleMenuClose}>
-
+                onClose={handleMenuClose}
+            >
                 <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
                 <MenuItem onClick={handleLogout}>Log out</MenuItem>
             </Menu>
         </React.Fragment>
     );
-}
-
+};
 
 export default UserAccountMenu;
