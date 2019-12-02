@@ -1,6 +1,6 @@
 import { AUTH_TOKEN, TOKEN_EXPIRY } from '../constants';
 
-class authGuard {
+class AuthGuard {
     isAuthenticated() {
         return (
             localStorage.getItem(AUTH_TOKEN) &&
@@ -9,4 +9,4 @@ class authGuard {
     }
 }
 
-export default new authGuard();
+export default new AuthGuard();

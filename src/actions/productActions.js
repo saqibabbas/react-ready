@@ -21,13 +21,13 @@ function getProductsPending() {
 function getProductsSuccess(products) {
     return {
         type: types.GET_PRODUCTS_SUCCESS,
-        products: products,
+        products,
     };
 }
 
 function getProductsError(error) {
     return {
         type: types.GET_PRODUCTS_ERROR,
-        error: error,
+        error,
     };
 }

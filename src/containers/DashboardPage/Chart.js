@@ -28,7 +28,7 @@ const data = [
 
 const Chart = () => {
     return (
-        <React.Fragment>
+        <>
             <Title>Today</Title>
             <ResponsiveContainer>
                 <LineChart
@@ -58,7 +58,7 @@ const Chart = () => {
                     />
                 </LineChart>
             </ResponsiveContainer>
-        </React.Fragment>
+        </>
     );
 };
 

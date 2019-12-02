@@ -23,7 +23,7 @@ const UserAccountMenu = props => {
     };
 
     return (
-        <React.Fragment>
+        <>
             <IconButton
                 edge="end"
                 aria-label="account of current user"
@@ -46,7 +46,7 @@ const UserAccountMenu = props => {
                 <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
                 <MenuItem onClick={handleLogout}>Log out</MenuItem>
             </Menu>
-        </React.Fragment>
+        </>
     );
 };
 

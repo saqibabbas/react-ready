@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 const Deposits = () => {
     const classes = useStyles();
     return (
-        <React.Fragment>
+        <>
             <Title>Recent Deposits</Title>
             <Typography component="p" variant="h4">
                 $3,024.00
@@ -29,7 +29,7 @@ const Deposits = () => {
                     View balance
                 </Link>
             </div>
-        </React.Fragment>
+        </>
     );
 };
 

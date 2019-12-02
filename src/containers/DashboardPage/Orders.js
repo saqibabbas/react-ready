@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
 const Orders = () => {
     const classes = useStyles();
     return (
-        <React.Fragment>
+        <>
             <Title>Recent Orders</Title>
             <Table size="small">
                 <TableHead>
@@ -93,7 +93,7 @@ const Orders = () => {
                     See more orders
                 </Link>
             </div>
-        </React.Fragment>
+        </>
     );
 };
 

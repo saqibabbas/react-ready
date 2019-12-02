@@ -11,10 +11,12 @@ class HomeLayout extends Component {
         super(props);
         this.logout = this.logout.bind(this);
     }
+
     logout() {
         authProvider.logout();
         this.setState({});
     }
+
     render() {
         return <Layout logout={this.logout} {...this.props} />;
     }
@@ -96,14 +98,14 @@ const Layout = props => {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <Container maxWidth="lg">
                 <Header classes={classes} {...props} />
                 <main>{children}</main>
             </Container>
             <Footer classes={classes} {...props} />
-        </React.Fragment>
+        </>
     );
 };
 

@@ -13,10 +13,12 @@ class AdminLayout extends Component {
         super(props);
         this.logout = this.logout.bind(this);
     }
+
     logout() {
         authProvider.logout();
         this.props.history.push('/');
     }
+
     render() {
         return <Layout logout={this.logout} {...this.props} />;
     }

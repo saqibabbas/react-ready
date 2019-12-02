@@ -63,6 +63,7 @@ const PrivateRoute = props => {
     );
 };
 
+// eslint-disable-next-line no-shadow
 const AppRouteLayout = ({ component: Component, layout: Layout, ...rest }) => {
     return (
         <Route
@@ -74,9 +75,8 @@ const AppRouteLayout = ({ component: Component, layout: Layout, ...rest }) => {
                             <Component {...props} />
                         </Layout>
                     );
-                } else {
-                    return <Component {...props} />;
                 }
+                return <Component {...props} />;
             }}
         />
     );

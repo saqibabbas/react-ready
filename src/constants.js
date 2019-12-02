@@ -1,4 +1,4 @@
-//http
+// http
 export const HTTP_STATUS_CODE = {
     OK: 200,
     BadRequest: 400,
@@ -9,6 +9,6 @@ export const HTTP_STATUS_CODE = {
 };
 export const NETWORK_ERROR = 'Network Error. Try again later.';
 
-//auth
+// auth
 export const AUTH_TOKEN = 'authToken';
 export const TOKEN_EXPIRY = 'tokenExpiry';

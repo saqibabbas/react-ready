@@ -8,7 +8,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
 
-const MenuItems = props => {
+const MenuItems = () => {
     return (
         <div>
             <ListItem component={Link} to="/" button>

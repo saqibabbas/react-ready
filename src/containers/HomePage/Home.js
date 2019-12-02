@@ -67,7 +67,7 @@ const Home = () => {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <>
             <Paper className={classes.mainFeaturedPost}>
                 {/* Increase the priority of the hero background image */}
                 {
@@ -145,7 +145,7 @@ const Home = () => {
                     </Grid>
                 ))}
             </Grid>
-        </React.Fragment>
+        </>
     );
 };
 

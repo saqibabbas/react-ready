@@ -6,13 +6,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { useHistory, authProvider, authGuard } from '../../utils';
 import { Redirect } from 'react-router-dom';
+import { useHistory, authProvider, authGuard } from '../../utils';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -48,6 +47,7 @@ const Login = () => {
             e.preventDefault();
             await authProvider.login({});
             history.push('/dashboard');
+            // eslint-disable-next-line no-empty
         } catch (error) {}
     }
     return authGuard.isAuthenticated() ? (
@@ -114,7 +114,8 @@ const Login = () => {
                         </Grid>
                         <Grid item>
                             <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
+                                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                Don't have an account? Sign Up
                             </Link>
                         </Grid>
                     </Grid>

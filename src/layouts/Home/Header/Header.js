@@ -29,7 +29,7 @@ const sections = [
 const Header = props => {
     const { classes } = props;
     return (
-        <React.Fragment>
+        <>
             <Toolbar className={classes.toolbar}>
                 <Button
                     variant="outlined"
@@ -52,7 +52,7 @@ const Header = props => {
                     <SearchIcon />
                 </IconButton>
                 {authGuard.isAuthenticated() ? (
-                    <React.Fragment>
+                    <>
                         <Button
                             variant="outlined"
                             size="small"
@@ -62,7 +62,7 @@ const Header = props => {
                             Dashbaord
                         </Button>
                         <UserAccountMenu {...props} />
-                    </React.Fragment>
+                    </>
                 ) : (
                     <Button
                         variant="outlined"
@@ -92,7 +92,7 @@ const Header = props => {
                     </Link>
                 ))}
             </Toolbar>
-        </React.Fragment>
+        </>
     );
 };
 
