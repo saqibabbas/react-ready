@@ -2,6 +2,8 @@ import React from 'react';
 import CustomerList from './CustomerList';
 
 class Customer extends React.Component {
+    componentDidMount() {}
+
     render() {
         return <CustomerList rows={rows} />;
     }

@@ -10,6 +10,8 @@ import { AdminLayout, HomeLayout } from '../layouts';
 import { authGuard } from '../utils';
 
 class AppRouter extends Component {
+    componentDidMount() {}
+
     render() {
         return (
             <Switch>
