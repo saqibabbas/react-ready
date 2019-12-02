@@ -26,7 +26,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "prettify": "prettier --config ./.prettierrc.js --write"
+    "prettify": "prettier --config ./.prettierrc.js --write --list-different \"src/**/*.{js,ts,json,tsx,css,md}\""
   },
   "browserslist": {
     "production": [
