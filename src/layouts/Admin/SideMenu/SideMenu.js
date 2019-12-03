@@ -30,7 +30,7 @@ const SideMenu = props => {
 };
 
 SideMenu.propTypes = {
-    open: PropTypes.func.isRequired,
+    open: PropTypes.bool.isRequired,
     classes: PropTypes.object.isRequired,
 };
 

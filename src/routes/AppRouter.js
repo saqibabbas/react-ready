@@ -90,6 +90,6 @@ PrivateRoute.propTypes = {
 };
 
 AppRouteLayout.propTypes = {
-    component: PropTypes.node.isRequired,
-    layout: PropTypes.node,
+    component: PropTypes.elementType.isRequired,
+    layout: PropTypes.elementType,
 };
