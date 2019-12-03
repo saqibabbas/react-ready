@@ -1,0 +1,62 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": [
+    "import",
+    "prettier"
+  ],
+  "extends": [
+    "react-app",
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "no-console": "warn",
+    "no-eval": "error",
+    "no-unused-vars": "error",
+    "no-use-before-define": "off",
+    "import/first": "error",
+    "import/newline-after-import": "off",
+    "import/no-dynamic-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-named-as-default": "off",
+    "import/no-unresolved": "error",
+    "import/no-webpack-loader-syntax": "off",
+    "import/prefer-default-export": "off",
+    "react/destructuring-assignment": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-closing-tag-location": "off",
+    "react/forbid-prop-types": "off",
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "multiline"
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/jsx-no-target-blank": "off",
+    "react/jsx-uses-vars": "error",
+    "react/require-default-props": "off",
+    "react/require-extension": "off",
+    "react/self-closing-comp": "off",
+    "react/sort-comp": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/jsx-props-no-spreading": "off"
+  }
+}
