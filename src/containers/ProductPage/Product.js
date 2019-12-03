@@ -1,29 +1,31 @@
 import React from 'react';
-import ProductList from './ProductList';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import ProductList from './ProductList';
 import { productActions } from '../../actions';
 
 class Product extends React.Component {
     componentDidMount() {
         this.props.getProducts();
     }
+
     render() {
-        return (
-            <ProductList rows={this.props.products} />
-        );
+        return <ProductList rows={this.props.products} />;
     }
-};
+}
 
-const mapStateToProps = (state, ownProps) => (
-    {
-        products: state.product.list
-    }
-);
+const mapStateToProps = state => ({
+    products: state.product.list,
+});
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
-        getProducts: () => dispatch(productActions.getProducts())
-    }
+        getProducts: () => dispatch(productActions.getProducts()),
+    };
 };
 
+Product.propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object).isRequired,
+    getProducts: PropTypes.func.isRequired,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Product);

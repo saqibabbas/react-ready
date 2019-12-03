@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import PropTypes from 'prop-types';
 import { authProvider } from '../../utils';
 import Header from './Header';
 import Footer from './Footer';
-
 
 class HomeLayout extends Component {
     constructor(props) {
         super(props);
         this.logout = this.logout.bind(this);
     }
+
     logout() {
         authProvider.logout();
         this.setState({});
     }
+
     render() {
-        return (
-            <Layout logout={this.logout} {...this.props} />
-        );
+        return <Layout logout={this.logout} {...this.props} />;
     }
 }
 
-const Layout = (props) => {
+const Layout = props => {
     const useStyles = makeStyles(theme => ({
         toolbar: {
             borderBottom: `1px solid ${theme.palette.divider}`,
@@ -99,17 +99,19 @@ const Layout = (props) => {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <Container maxWidth="lg">
                 <Header classes={classes} {...props} />
-                <main>
-                    {children}
-                </main>
+                <main>{children}</main>
             </Container>
             <Footer classes={classes} {...props} />
-        </React.Fragment>
+        </>
     );
+};
+
+Layout.propTypes = {
+    children: PropTypes.node,
 };
 
 export default HomeLayout;

@@ -3,7 +3,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-const Footer = (props) => {
+const Footer = () => {
     return (
         <Box pt={4}>
             <Copyright />
@@ -17,11 +17,11 @@ const Copyright = () => {
             {'Copyright © '}
             <Link color="inherit" href="https://material-ui.com/">
                 Your Website
-        </Link>{' '}
+            </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
         </Typography>
     );
-}
+};
 
 export default Footer;
