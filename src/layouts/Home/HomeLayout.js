@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import PropTypes from 'prop-types';
 import { authProvider } from '../../utils';
 import Header from './Header';
 import Footer from './Footer';
@@ -107,6 +108,10 @@ const Layout = props => {
             <Footer classes={classes} {...props} />
         </>
     );
+};
+
+Layout.propTypes = {
+    children: PropTypes.node,
 };
 
 export default HomeLayout;

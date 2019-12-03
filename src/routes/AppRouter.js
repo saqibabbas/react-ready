@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Dashboard from '../containers/DashboardPage';
 import Customer from '../containers/CustomerPage';
 import Product from '../containers/ProductPage';
@@ -82,4 +83,13 @@ const AppRouteLayout = ({ component: Component, layout: Layout, ...rest }) => {
             }}
         />
     );
+};
+
+PrivateRoute.propTypes = {
+    location: PropTypes.object,
+};
+
+AppRouteLayout.propTypes = {
+    component: PropTypes.node.isRequired,
+    layout: PropTypes.node,
 };

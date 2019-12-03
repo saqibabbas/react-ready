@@ -56,9 +56,8 @@
     "react/require-extension": "off",
     "react/self-closing-comp": "off",
     "react/sort-comp": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     // have to remove these rules once error gets resolved
-    "react/prop-types": "off",
-    "react/jsx-props-no-spreading": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "react/jsx-props-no-spreading": "off"
   }
 }

@@ -8,6 +8,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import PropTypes from 'prop-types';
 import Title from '../../components/Title';
 
 const useStyles = makeStyles(theme => ({
@@ -22,8 +23,9 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const CustomerList = ({ rows }) => {
+const CustomerList = props => {
     const classes = useStyles();
+    const { rows } = props;
     return (
         <Grid item xs={12}>
             <Paper className={classes.paper}>
@@ -63,4 +65,7 @@ const CustomerList = ({ rows }) => {
     );
 };
 
+CustomerList.propTypes = {
+    rows: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 export default CustomerList;

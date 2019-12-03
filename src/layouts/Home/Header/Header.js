@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import { Link as RouterLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import UserAccountMenu from '../../../components/UserAccountMenu';
 import { authGuard } from '../../../utils';
 
@@ -94,6 +95,10 @@ const Header = props => {
             </Toolbar>
         </>
     );
+};
+
+Header.propTypes = {
+    classes: PropTypes.object.isRequired,
 };
 
 export default Header;

@@ -8,6 +8,7 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MailIcon from '@material-ui/icons/Mail';
+import PropTypes from 'prop-types';
 import UserAccountMenu from '../../../components/UserAccountMenu';
 
 const Header = props => {
@@ -47,6 +48,11 @@ const Header = props => {
             </Toolbar>
         </AppBar>
     );
+};
+
+Header.propTypes = {
+    handleDrawerToggle: PropTypes.func.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default Header;

@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
+import PropTypes from 'prop-types';
 import MenuItems from './MenuItems';
 
 const SideMenu = props => {
@@ -26,6 +27,11 @@ const SideMenu = props => {
             <Divider />
         </Drawer>
     );
+};
+
+SideMenu.propTypes = {
+    open: PropTypes.func.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default SideMenu;

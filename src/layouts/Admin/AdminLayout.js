@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { authProvider } from '../../utils';
 import Header from './Header';
 import SideMenu from './SideMenu';
@@ -120,6 +121,13 @@ const Layout = props => {
             </main>
         </div>
     );
+};
+
+AdminLayout.propTypes = {
+    history: PropTypes.object.isRequired,
+};
+Layout.propTypes = {
+    children: PropTypes.node,
 };
 
 export default withRouter(AdminLayout);

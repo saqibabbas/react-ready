@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import ProductList from './ProductList';
 import { productActions } from '../../actions';
 
@@ -23,4 +24,8 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
+Product.propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object).isRequired,
+    getProducts: PropTypes.func.isRequired,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
