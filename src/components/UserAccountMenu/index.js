@@ -3,8 +3,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import PropTypes from 'prop-types';
 
-const UserAccountMenu = (props) => {
+const UserAccountMenu = props => {
     const { logout } = props;
     const menuId = 'user-account-menu';
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,7 +24,7 @@ const UserAccountMenu = (props) => {
     };
 
     return (
-        <React.Fragment>
+        <>
             <IconButton
                 edge="end"
                 aria-label="account of current user"
@@ -41,14 +42,16 @@ const UserAccountMenu = (props) => {
                 keepMounted
                 transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                 open={isMenuOpen}
-                onClose={handleMenuClose}>
-
+                onClose={handleMenuClose}
+            >
                 <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
                 <MenuItem onClick={handleLogout}>Log out</MenuItem>
             </Menu>
-        </React.Fragment>
+        </>
     );
-}
+};
 
-
+UserAccountMenu.propTypes = {
+    logout: PropTypes.func.isRequired,
+};
 export default UserAccountMenu;

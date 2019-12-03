@@ -1,15 +1,14 @@
-import httpClient from './httpClient';
 import { AUTH_TOKEN, TOKEN_EXPIRY } from '../constants';
 
-class authProvider {
-    async login(credentials) {
+class AuthProvider {
+    async login() {
         try {
             // un-comment the http call once integrated with actual login API
-            //const response = await httpClient.post('login', credentials);
+            // const response = await httpClient.post('login', credentials);
             // set token and token expiry in local storage or as per your approach
 
-            //localStorage.setItem(AUTH_TOKEN, response.result.token);
-            //localStorage.setItem(TOKEN_EXPIRY, response.result.tokenExpiry);
+            // localStorage.setItem(AUTH_TOKEN, response.result.token);
+            // localStorage.setItem(TOKEN_EXPIRY, response.result.tokenExpiry);
 
             // genenating token 2 minute token expiry time
             const tokenExpiry = this.getTokenFakeExpiryTime(2).toISOString();
@@ -17,8 +16,7 @@ class authProvider {
             localStorage.setItem(AUTH_TOKEN, 'token');
             localStorage.setItem(TOKEN_EXPIRY, tokenExpiry);
             return Promise.resolve();
-        }
-        catch (error) {
+        } catch (error) {
             return Promise.reject(error.message);
         }
     }
@@ -28,12 +26,12 @@ class authProvider {
         localStorage.removeItem(TOKEN_EXPIRY);
     }
 
-    refreshToken() {
-    }
+    refreshToken() {}
+
     getTokenFakeExpiryTime(minutes) {
-        let dt = new Date();
+        const dt = new Date();
         return new Date(dt.setUTCMinutes(dt.getUTCMinutes() + minutes));
     }
 }
 
-export default new authProvider();
+export default new AuthProvider();
