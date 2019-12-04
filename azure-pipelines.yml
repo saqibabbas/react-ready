@@ -14,8 +14,8 @@ jobs:
 - job: npmrunlint
   steps:
   - script: |
-    npm install
-    npm run lint
+      npm install
+      npm run lint
   displayName: 'Lint'
 
 - job: npmrunbuild
@@ -23,6 +23,6 @@ jobs:
   condition: succeeded()
   steps:
   - script: |
-    npm install
-    npm run build
+      npm install
+      npm run build
   displayName: 'Build'
