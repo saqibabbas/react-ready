@@ -13,7 +13,7 @@ pool:
 jobs:
 - job: npmrunlint
   steps:
- - script: |
+  - script: |
     npm install
     npm run lint
   displayName: 'Lint'
