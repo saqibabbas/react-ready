@@ -13,6 +13,10 @@ pool:
 steps:
 - script: |
     npm install
+    condition: succeeded()
     npm run lint
+    condition: succeeded()
     npm run build
+    condition: succeeded()
+
   displayName: 'npm install, lint and build'
