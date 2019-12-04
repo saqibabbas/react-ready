@@ -11,21 +11,18 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
-- job: npminstall
-  steps:
-  - script: npm install
-  displayName: 'npm install'
-
 - job: npmrunlint
-  dependsOn: npminstall
-  condition: succeeded()
   steps:
-  - script: npm run lint
+ - script: |
+    npm install
+    npm run lint
   displayName: 'Lint'
 
 - job: npmrunbuild
   dependsOn: npmrunlint
   condition: succeeded()
   steps:
-  - script: npm run build
+  - script: |
+    npm install
+    npm run build
   displayName: 'Build'
