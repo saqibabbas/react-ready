@@ -14,17 +14,18 @@ jobs:
 - job: npminstall
   steps:
   - script: npm install
+  displayName: 'npm install'
 
 - job: npmrunlint
   dependsOn: npminstall
   condition: succeeded()
   steps:
   - script: npm run lint
+  displayName: 'Lint'
 
 - job: npmrunbuild
   dependsOn: npmrunlint
   condition: succeeded()
   steps:
   - script: npm run build
-
-  displayName: 'Lint and Build'
+  displayName: 'Build'
