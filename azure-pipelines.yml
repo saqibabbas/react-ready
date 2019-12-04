@@ -5,15 +5,27 @@
 
 trigger:
 - master
+- develop
 
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+- job: npminstall
+  steps:
+  - script: npm install
+  displayName: 'npm install'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- job: npmrunlint
+  dependsOn: npminstall
+  condition: succeeded()
+  steps:
+  - script: npm run lint
+  displayName: 'Lint'
+
+- job: npmrunbuild
+  dependsOn: npmrunlint
+  condition: succeeded()
+  steps:
+  - script: npm run build
+  displayName: 'Build'
