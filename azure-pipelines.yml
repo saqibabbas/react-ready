@@ -10,13 +10,21 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: |
-    npm install
-    condition: succeeded()
-    npm run lint
-    condition: succeeded()
-    npm run build
-    condition: succeeded()
+jobs:
+- job: npminstall
+  steps:
+  - script: npm install
 
-  displayName: 'npm install, lint and build'
+- job: npmrunlint
+  dependsOn: npminstall
+  condition: succeeded()
+  steps:
+  - script: npm run lint
+
+- job: npmrunbuild
+  dependsOn: npmrunlint
+  condition: succeeded()
+  steps:
+  - script: npm run build
+
+  displayName: 'Lint and Build'
