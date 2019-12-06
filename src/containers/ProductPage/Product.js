@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ProductList from './ProductList';
-import { productActions } from '../../actions';
+import { productActions, commonActions } from '../../actions';
 
 class Product extends React.Component {
     componentDidMount() {
@@ -10,7 +10,11 @@ class Product extends React.Component {
     }
 
     render() {
-        return <ProductList rows={this.props.products} />;
+        return (
+            <>
+                <ProductList rows={this.props.products} />
+            </>
+        );
     }
 }
 
@@ -20,7 +24,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        getProducts: () => dispatch(productActions.getProducts()),
+        getProducts: async () => {
+            dispatch(commonActions.showLoading());
+            await dispatch(productActions.getProducts());
+            dispatch(commonActions.hideLoading());
+        },
     };
 };
 
