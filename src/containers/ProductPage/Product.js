@@ -5,8 +5,15 @@ import ProductList from './ProductList';
 import { productActions, commonActions } from '../../actions';
 
 class Product extends React.Component {
-    componentDidMount() {
-        this.props.getProducts();
+    async componentDidMount() {
+        try {
+            this.props.showLoading();
+            await this.props.getProducts();
+        } catch (error) {
+            this.props.showSnackBar(error.message);
+        } finally {
+            this.props.hideLoading();
+        }
     }
 
     render() {
@@ -25,8 +32,15 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return {
         getProducts: async () => {
-            dispatch(commonActions.showLoading());
             await dispatch(productActions.getProducts());
+        },
+        showSnackBar: message => {
+            dispatch(commonActions.showSnackBar(message));
+        },
+        showLoading: () => {
+            dispatch(commonActions.showLoading());
+        },
+        hideLoading: () => {
             dispatch(commonActions.hideLoading());
         },
     };
@@ -35,5 +49,8 @@ const mapDispatchToProps = dispatch => {
 Product.propTypes = {
     products: PropTypes.arrayOf(PropTypes.object).isRequired,
     getProducts: PropTypes.func.isRequired,
+    showSnackBar: PropTypes.func.isRequired,
+    showLoading: PropTypes.func.isRequired,
+    hideLoading: PropTypes.func.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
