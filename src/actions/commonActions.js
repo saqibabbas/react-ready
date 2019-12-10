@@ -10,3 +10,14 @@ export function hideLoading() {
         type: types.HIDE_LOADING,
     };
 }
+export function showSnackBar(message) {
+    return {
+        type: types.SHOW_SNACKBAR,
+        payload: message,
+    };
+}
+export function hideSnackBar() {
+    return {
+        type: types.HIDE_SNACKBAR,
+    };
+}
