@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ProductList from './ProductList';
-import { productActions, commonActions } from '../../actions';
+import { productActions } from '../../actions';
+import { base } from '../../hocs';
 
 class Product extends React.Component {
     async componentDidMount() {
@@ -34,15 +35,6 @@ const mapDispatchToProps = dispatch => {
         getProducts: async () => {
             await dispatch(productActions.getProducts());
         },
-        showSnackBar: message => {
-            dispatch(commonActions.showSnackBar(message));
-        },
-        showLoading: () => {
-            dispatch(commonActions.showLoading());
-        },
-        hideLoading: () => {
-            dispatch(commonActions.hideLoading());
-        },
     };
 };
 
@@ -53,4 +45,4 @@ Product.propTypes = {
     showLoading: PropTypes.func.isRequired,
     hideLoading: PropTypes.func.isRequired,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default base(connect(mapStateToProps, mapDispatchToProps)(Product));
