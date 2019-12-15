@@ -1,26 +1,21 @@
+import * as types from '../actions/actionTypes';
+
 const initialState = {
-    list: [
-        {
-            amount: 866.99,
-            date: '16 Mar, 2019',
-            id: 1,
-            name: 'Paul McCartney',
-            paymentMethod: 'VISA ⠀•••• 2574',
-            shipTo: 'London, UK',
-        },
-        {
-            amount: 866.99,
-            date: '16 Mar, 2019',
-            id: 2,
-            name: 'Paul McCartney',
-            paymentMethod: 'VISA ⠀•••• 2574',
-            shipTo: 'London, UK',
-        },
-    ],
+    list: [],
 };
 
 export default function customerReducer(state = initialState, action) {
     switch (action.type) {
+        case types.GET_CUSTOMERS_REQUEST:
+            return {
+                ...state,
+                list: [],
+            };
+        case types.GET_CUSTOMERS_SUCCESS:
+            return {
+                ...state,
+                list: action.payload,
+            };
         default:
             return state;
     }
