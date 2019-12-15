@@ -26,7 +26,7 @@ const data = [
     createData('24:00', undefined),
 ];
 
-const Chart = () => {
+const Sales = () => {
     return (
         <>
             <Title>Today</Title>
@@ -62,4 +62,4 @@ const Chart = () => {
     );
 };
 
-export default Chart;
+export default Sales;
