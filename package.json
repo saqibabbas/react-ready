@@ -1,7 +1,24 @@
 {
-  "name": "my-app",
+  "name": "react-ready",
   "version": "0.1.0",
   "private": true,
+  "description": "React boilerplate",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saqibabbas/react-ready.git"
+  },
+  "keywords": [
+    "react",
+    "boilerplate",
+    "react-roilerplate",
+    "react-ready"
+  ],
+  "author": "Syed Saqib Abbas Rizvi",
+  "bugs": {
+    "url": "https://github.com/saqibabbas/react-ready/issues"
+  },
+  "homepage": "https://github.com/saqibabbas/react-ready#readme",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
