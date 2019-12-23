@@ -1,71 +1,108 @@
 [![Build Status](https://dev.azure.com/saqibriz/react-ready/_apis/build/status/saqibabbas.react-ready?branchName=master)](https://dev.azure.com/saqibriz/react-ready/_build/latest?definitionId=3&branchName=master)
 
+![react-ready](https://user-images.githubusercontent.com/17729583/71358592-50981180-25ab-11ea-9e13-7c50d79b4fbc.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# React Ready
 
-In the project directory, you can run:
+A boilerplate that consists of the essential elements that are required to start building a Single Page Application using React, React Router, Redux and Material UI.
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The boilerplate consists of:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* Typcial container structure
+* Multilayouts support
+* Redux and Redux-thunk integration
+* React-Router 
+* Material UI
+* Axios as http client
+* Admin Dashboard
+* Public and private routes
+* ESLint and prettier configuration
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Getting Started
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+These instructions will get you a copy of the project up and running on your local machine for development.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The following software is required to be installed on your system:
 
-### `yarn eject`
+* Node 10.x
+* Npm 6.x
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Type the following commands in the terminal to verify your node and npm versions
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ```bash
+  node -v
+  npm -v
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Install
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Follow the following steps to get development environment running.
 
-## Learn More
+* Clone _'react-ready'_ repository from GitHub
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  ```bash
+  git clone https://github.com/saqibabbas/react-ready.git
+  ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   _OR USING SSH_
 
-### Code Splitting
+  ```bash
+  git clone git@github.com:saqibabbas/react-ready.git
+  ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* Install node modules
 
-### Analyzing the Bundle Size
+   ```bash
+   cd react-ready
+   npm install
+   ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Build
 
-### Making a Progressive Web App
+#### Build Application
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+ ```bash
+   npm run build
+   ```
 
-### Advanced Configuration
+### Run ESlint
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+#### Lint Project Using ESLint
 
-### Deployment
+  ```bash
+  npm run lint
+  ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### Lint Project Using ESLint, and autofix
 
-### `yarn build` fails to minify
+  ```bash
+  npm run lint:fix
+  ```
+### Run Prettier
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Prettify Project 
+
+  ```bash
+  npm run prettify
+  ```
+
+### Run
+
+#### Run Start
+
+```bash
+npm run start
+```
+
+---
+
+## Authors
+
+* **Saqib Abbas** - *Initial work* - [saqibabbas](https://github.com/saqibabbas)
