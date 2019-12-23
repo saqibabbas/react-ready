@@ -18,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/saqibabbas/react-ready/issues"
   },
-  "homepage": "https://github.com/saqibabbas/react-ready#readme",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
