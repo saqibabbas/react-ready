@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Dashboard from '../containers/DashboardPage';
-import Customer from '../containers/CustomerPage';
-import Product from '../containers/ProductPage';
-import Home from '../containers/HomePage';
-import Login from '../containers/LoginPage';
+import Dashboard from '../containers/Dashboard';
+import Customer from '../containers/Customer';
+import Product from '../containers/Product';
+import Home from '../containers/Home';
+import Login from '../containers/Login';
 import NotFound from '../components/NotFound';
 import { AdminLayout, HomeLayout } from '../layouts';
 import { authGuard } from '../utils';
