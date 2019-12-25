@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { commonActions } from '../actions';
 
 const base = MainComponent => {
@@ -25,7 +26,9 @@ const base = MainComponent => {
             },
         };
     };
-    return connect(mapStateToProps, mapDispatchToProps)(BaseComponent);
+    return withRouter(
+        connect(mapStateToProps, mapDispatchToProps)(BaseComponent),
+    );
 };
 
 export default base;

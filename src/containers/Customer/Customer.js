@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CustomerList from './CustomerList';
 import { base } from '../../hocs';
 import { customerActions } from '../../actions';
-
+import Fab from '../../components/Fab';
 class Customer extends React.Component {
     async componentDidMount() {
         try {
@@ -18,7 +18,16 @@ class Customer extends React.Component {
     }
 
     render() {
-        return <CustomerList rows={this.props.customers} />;
+        return (
+            <>
+                <Fab
+                    handleClick={() => {
+                        this.props.history.push('/customer/add');
+                    }}
+                />
+                <CustomerList rows={this.props.customers} />
+            </>
+        );
     }
 }
 
@@ -40,5 +49,6 @@ Customer.propTypes = {
     showSnackBar: PropTypes.func.isRequired,
     showLoading: PropTypes.func.isRequired,
     hideLoading: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
 };
 export default base(connect(mapStateToProps, mapDispatchToProps)(Customer));
