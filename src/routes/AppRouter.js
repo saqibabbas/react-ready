@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Dashboard from '../containers/Dashboard';
-import Customer from '../containers/Customer';
+import { Customer, CustomerAdd } from '../containers/Customer';
 import Product from '../containers/Product';
 import Home from '../containers/Home';
 import Login from '../containers/Login';
@@ -29,6 +29,11 @@ class AppRouter extends Component {
                 <PrivateRoute
                     path="/customers"
                     component={Customer}
+                    layout={AdminLayout}
+                />
+                <PrivateRoute
+                    path="/customer/add"
+                    component={CustomerAdd}
                     layout={AdminLayout}
                 />
                 <PrivateRoute
