@@ -5,9 +5,12 @@ import AddIcon from '@material-ui/icons/Add';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
-    fab: {
+    dflex: {
+        display: 'flex',
+    },
+    mlauto: {
+        marginLeft: 'auto',
         marginBottom: theme.spacing(1),
-        marginLeft: theme.spacing(125),
     },
 }));
 
@@ -18,15 +21,17 @@ const SimpleFab = props => {
         handleClick();
     };
     return (
-        <Fab
-            color="primary"
-            size="small"
-            aria-label="add"
-            className={classes.fab}
-            onClick={onClick}
-        >
-            <AddIcon />
-        </Fab>
+        <div className={classes.dflex}>
+            <Fab
+                color="primary"
+                size="small"
+                aria-label="add"
+                className={classes.mlauto}
+                onClick={onClick}
+            >
+                <AddIcon />
+            </Fab>
+        </div>
     );
 };
 SimpleFab.propTypes = {
