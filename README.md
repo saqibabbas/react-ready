@@ -10,15 +10,17 @@ A boilerplate that consists of the essential elements that are required to start
 
 The boilerplate consists of:
 
-* Typcial container structure
-* Multilayouts support
+* Typical container structure
 * Redux and Redux-thunk integration
-* React-Router 
+* List and forms(In-progress)
+* Admin Panel
+* React-Router
 * Material UI
-* Axios as http client
-* Admin Dashboard
+* Axios http client
+* Multi-layouts support
 * Public and private routes
 * ESLint and prettier configuration
+* CI integration
 
 ---
 
