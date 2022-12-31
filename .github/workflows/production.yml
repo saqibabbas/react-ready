@@ -1,0 +1,26 @@
+name: Production workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Development Code
+        uses: actions/checkout@v2
+      - name: Use Node.js 17.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17.x
+      - run: npm install
+      - run: npm run build --if-present
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: 'react-ready'
+          heroku_email: 'saqib.ubit@gmail.com'
